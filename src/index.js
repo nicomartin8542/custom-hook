@@ -1,6 +1,7 @@
-/* import React from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import { Padre } from "./components/07-tareaMemo/Padre"; */
+import TodoApp from "./components/08-useReducer/TodoApp";
+/* import { Padre } from "./components/07-tareaMemo/Padre"; */
 /* import CallBackHook from "./components/06-Memo/CallBackHook"; */
 /* import MemoHook from "./components/06-Memo/MemoHook"; */
 /* import Memorize from "./components/06-Memo/Memorize"; */
@@ -14,11 +15,9 @@ import { Padre } from "./components/07-tareaMemo/Padre"; */
 /* import CounterApp from "./components/01-useState/CounterApp"; */
 /* import HookApp from "./HooksApp"; */
 
-/* ReactDOM.render(
+ReactDOM.render(
   <React.StrictMode>
-    <Padre />
+    <TodoApp />
   </React.StrictMode>,
   document.getElementById("root")
-); */
-
-import "./components/08-useReducer/intro-reducer";
+);

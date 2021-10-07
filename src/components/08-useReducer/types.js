@@ -1,0 +1,1 @@
+export const PRUEBA_ACCION = "PRUEBA_ACCION";
