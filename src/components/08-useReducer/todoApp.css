@@ -1,3 +1,12 @@
 body {
-  padding: 70px;
+	padding: 70px;
+}
+
+p {
+	margin: 0;
+	cursor: pointer;
+}
+
+.complete {
+	text-decoration: line-through;
 }
