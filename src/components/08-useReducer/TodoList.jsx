@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TodoContext from "./todoContext/TodoContext";
 
 const TodoList = () => {
   //Importo context en el compnonente
   const todoContext = useContext(TodoContext);
-  const { todos, eliminarTodo, marcarTodo } = todoContext;
+  const [todoStorage, setTodoStorage] = useState([]);
+  const { eliminarTodo, marcarTodo } = todoContext;
+
+  useEffect(() => {
+    setTodoStorage(JSON.parse(localStorage.getItem("todos")));
+  }, [todoStorage]);
 
   return (
     <div className="col-lg-7 col-sm-12 me-lg-3">
@@ -19,7 +24,7 @@ const TodoList = () => {
         </thead>
 
         <tbody>
-          {todos.map((todo, i) => (
+          {todoStorage?.map((todo, i) => (
             <tr key={todo.id}>
               <td>{i + 1}</td>
               <td>

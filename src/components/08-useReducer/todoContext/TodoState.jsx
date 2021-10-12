@@ -25,6 +25,7 @@ const TodoState = (props) => {
 
   const eliminarTodo = (id) => {
     dispatch({ type: BORRAR_TODO, payload: id });
+    localStorage.setItem("todos", JSON.stringify(state));
   };
 
   const marcarTodo = (todo) => {
