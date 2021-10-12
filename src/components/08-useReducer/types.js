@@ -1,1 +1,3 @@
-export const PRUEBA_ACCION = "PRUEBA_ACCION";
+export const AGREGAR_TODO = "AGREGAR_TODO";
+export const BORRAR_TODO = "BORRAR_TODO";
+export const MARCAR_TODO = "MARCAR_TODO";
