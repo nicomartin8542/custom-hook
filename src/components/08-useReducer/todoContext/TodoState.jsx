@@ -1,22 +1,16 @@
 import React, { useReducer } from "react";
-import {
-  AGREGAR_STORAGE,
-  AGREGAR_TODO,
-  BORRAR_TODO,
-  GUARDAR_STORAGE,
-  MARCAR_TODO,
-} from "../types";
+import { AGREGAR_TODO, BORRAR_TODO, MARCAR_TODO } from "../types";
 import TodoContext from "./TodoContext";
 import { TodoReducer } from "./TodoReducer";
 
 const TodoState = (props) => {
-  const initialState = {
-    todos: [],
-    todosStorage: [],
+  //Inicializo reducer
+  const init = () => {
+    return { todos: JSON.parse(localStorage.getItem("todos")) || [] };
   };
 
   //Inicializo reducer
-  const [state, dispatch] = useReducer(TodoReducer, initialState);
+  const [state, dispatch] = useReducer(TodoReducer, [], init);
 
   //Funciones
   const agregarTodo = (values) => {
@@ -26,47 +20,30 @@ const TodoState = (props) => {
       done: false,
     };
 
+    console.log(state.todos);
+
     dispatch({
       type: AGREGAR_TODO,
       payload: newTodo,
     });
-
-    guardarStorage();
-    agregarStorage();
   };
 
   const eliminarTodo = (id) => {
     dispatch({ type: BORRAR_TODO, payload: id });
-    guardarStorage();
-    agregarStorage();
   };
 
   const marcarTodo = (todo) => {
     todo.done = !todo.done;
     dispatch({ type: MARCAR_TODO, payload: todo });
-    guardarStorage();
-    agregarStorage();
-  };
-
-  const agregarStorage = () => {
-    dispatch({
-      type: AGREGAR_STORAGE,
-    });
-  };
-
-  const guardarStorage = () => {
-    dispatch({ type: GUARDAR_STORAGE });
   };
 
   return (
     <TodoContext.Provider
       value={{
         todos: state.todos,
-        todosStorage: state.todosStorage,
         agregarTodo,
         eliminarTodo,
         marcarTodo,
-        agregarStorage,
       }}
     >
       {props.children}

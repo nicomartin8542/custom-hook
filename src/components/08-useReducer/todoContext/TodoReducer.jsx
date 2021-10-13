@@ -1,10 +1,4 @@
-import {
-  AGREGAR_STORAGE,
-  AGREGAR_TODO,
-  BORRAR_TODO,
-  GUARDAR_STORAGE,
-  MARCAR_TODO,
-} from "../types";
+import { AGREGAR_TODO, BORRAR_TODO, MARCAR_TODO } from "../types";
 
 export const TodoReducer = (state = [], action) => {
   switch (action.type) {
@@ -26,19 +20,6 @@ export const TodoReducer = (state = [], action) => {
       return {
         ...state,
         todos: [...state.todos, action.payload],
-      };
-
-    case AGREGAR_STORAGE:
-      return {
-        ...state,
-        todosStorage: JSON.parse(localStorage.getItem("todos")),
-        todos: JSON.parse(localStorage.getItem("todos")),
-      };
-
-    case GUARDAR_STORAGE:
-      localStorage.setItem("todos", JSON.stringify(state.todos));
-      return {
-        ...state,
       };
 
     default:

@@ -4,7 +4,7 @@ import TodoContext from "./todoContext/TodoContext";
 const TodoList = () => {
   //Importo context en el compnonente
   const todoContext = useContext(TodoContext);
-  const { todosStorage, eliminarTodo, marcarTodo } = todoContext;
+  const { todos, eliminarTodo, marcarTodo } = todoContext;
 
   return (
     <div className="col-lg-7 col-sm-12 me-lg-3">
@@ -19,7 +19,7 @@ const TodoList = () => {
         </thead>
 
         <tbody>
-          {todosStorage?.map((todo, i) => (
+          {todos?.map((todo, i) => (
             <tr key={todo.id}>
               <td>{i + 1}</td>
               <td>
