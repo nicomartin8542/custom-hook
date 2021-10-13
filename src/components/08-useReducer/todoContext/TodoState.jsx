@@ -20,8 +20,6 @@ const TodoState = (props) => {
       done: false,
     };
 
-    console.log(state.todos);
-
     dispatch({
       type: AGREGAR_TODO,
       payload: newTodo,

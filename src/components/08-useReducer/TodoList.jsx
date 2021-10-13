@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import TodoContext from "./todoContext/TodoContext";
+import TodoListItem from "./TodoListItem";
 
 const TodoList = () => {
   //Importo context en el compnonente
   const todoContext = useContext(TodoContext);
-  const { todos, eliminarTodo, marcarTodo } = todoContext;
+  const { todos } = todoContext;
 
   return (
     <div className="col-lg-7 col-sm-12 me-lg-3">
@@ -20,26 +21,7 @@ const TodoList = () => {
 
         <tbody>
           {todos?.map((todo, i) => (
-            <tr key={todo.id}>
-              <td>{i + 1}</td>
-              <td>
-                <p
-                  onClick={() => marcarTodo(todo)}
-                  className={todo.done ? "complete" : ""}
-                >
-                  {todo.desc}
-                </p>
-              </td>
-              <td>{todo.done ? "Completada" : "Incompleta"}</td>
-              <td>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => eliminarTodo(todo.id)}
-                >
-                  Eliminar
-                </button>
-              </td>
-            </tr>
+            <TodoListItem key={i} todo={todo} i={i} />
           ))}
         </tbody>
       </table>
