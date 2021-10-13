@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TodoApp from "./components/08-useReducer/TodoApp";
-import TodoContext from "./components/08-useReducer/todoContext/TodoState";
+import { MainApp } from "./components/09-useContext/MainApp";
+/* import TodoApp from "./components/08-useReducer/TodoApp";
+import TodoContext from "./components/08-useReducer/todoContext/TodoState"; */
 /* import { Padre } from "./components/07-tareaMemo/Padre"; */
 /* import CallBackHook from "./components/06-Memo/CallBackHook"; */
 /* import MemoHook from "./components/06-Memo/MemoHook"; */
@@ -18,9 +19,10 @@ import TodoContext from "./components/08-useReducer/todoContext/TodoState";
 
 ReactDOM.render(
   <React.StrictMode>
-    <TodoContext>
+    {/* <TodoContext>
       <TodoApp />
-    </TodoContext>
+    </TodoContext> */}
+    <MainApp />
   </React.StrictMode>,
   document.getElementById("root")
 );
