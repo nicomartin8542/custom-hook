@@ -9,15 +9,16 @@ const TodoApp = () => {
   //Importo context en el compnonente
   const todoContext = useContext(TodoContext);
 
-  const { todos } = todoContext;
+  const { todosStorage, agregarStorage } = todoContext;
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+    agregarStorage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
-      <h1>Todo App ({todos?.length})</h1>
+      <h1>Todo App ({todosStorage?.length})</h1>
       <hr />
       <div className="d-flex flex-column flex-lg-row">
         <TodoList />

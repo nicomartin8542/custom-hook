@@ -1,3 +1,5 @@
 export const AGREGAR_TODO = "AGREGAR_TODO";
 export const BORRAR_TODO = "BORRAR_TODO";
 export const MARCAR_TODO = "MARCAR_TODO";
+export const AGREGAR_STORAGE = "AGREGAR_STORAGE";
+export const GUARDAR_STORAGE = "GUARDAR_STORAGE";

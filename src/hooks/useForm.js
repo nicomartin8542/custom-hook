@@ -10,7 +10,7 @@ const useForm = (initialState = {}, validate, fn) => {
     const errorVerify = Object.keys(error).length === 0;
     errorVerify && fn(values);
     setSubmit(false);
-    setValues({});
+    resetForm();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
@@ -27,10 +27,13 @@ const useForm = (initialState = {}, validate, fn) => {
     const errores = validate(values);
     setError(errores);
     setSubmit(true);
-    e.target.reset();
   };
 
-  return [values, error, handleInputChange, handleFormSubmit];
+  const resetForm = () => {
+    setValues(initialState);
+  };
+
+  return [values, error, handleInputChange, handleFormSubmit, resetForm];
 };
 
 export default useForm;

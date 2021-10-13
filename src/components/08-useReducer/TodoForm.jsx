@@ -9,8 +9,8 @@ const TodoForm = () => {
   const { agregarTodo } = todoContext;
 
   //Hook personalizado para validar un formulario
-  const [values, error, handleChange, handleSubmit] = useForm(
-    {},
+  const [{ desc }, error, handleChange, handleSubmit] = useForm(
+    { desc: "" },
     todoValidacion,
     agregarTodo
   );
@@ -27,7 +27,7 @@ const TodoForm = () => {
           autoComplete="false"
           className="form-control"
           onChange={handleChange}
-          values={values.desc}
+          value={desc}
         />
 
         {error.desc && (
